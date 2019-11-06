@@ -1,0 +1,576 @@
+/*-------------------١--------------------------*/
+/*                  ملحوظات                     */
+/*
+ملحوظة عامة:لقد  تركت لكم تعليقات لتساعدك علي تنظيم الملف بالشكل المثالي
+تأكد من أن آخر جزء هو الجزء الحاوي لكل ما هو متعلق بشكل الصفحة على الهواتف والتابلت
+إذا كان لديك أي سؤال من فضلك إرسل لي الكود وشرح المشكلة علي البريد الالكتروني
+tony@barmej.com
+*/
+/*----------------------------------------------*/
+
+/*----------------------١-----------------------*/
+/*
+Fonts & Font-faces سنقوم بوضع جميع الخطوط التي سنحتاجها هنا
+ملحوظة: إسم الخط هو إما
+Avenir Next 
+أو إن لم تجده فيمكنك استعمال خط 
+Lato
+*/
+/*---------------------------------------------*/
+@font-face {
+	font-family: "AvenirNext-Regular";
+	src: url("../fonts/AvenirNext-Regular.woff2") format("woff2"),
+		url("../fonts/AvenirNext-Regular.woff)") format("woff");
+}
+@font-face {
+	font-family: "AvenirNext-Bold";
+	src: url("../fonts/AvenirNext-Bold.woff2") format("woff2"), url("../fonts/AvenirNext-Bold.woff") format("woff");
+	font-weight: bold;
+}
+@font-face {
+	font-family: "AvenirNext-Medium";
+	src: url("../fonts/AvenirNext-Medium.woff2") format("woff2"), url("../fonts/AvenirNext-Medium.woff") format("woff");
+	font-weight: Medium;
+}
+@font-face {
+	/* تم اضافته من النت  */
+	font-family: "FontAwesome";
+	font-weight: normal;
+	font-style: normal;
+	src: url("http://maxcdn.bootstrapcdn.com/font-awesome/4.3.0/fonts/fontawesome-webfont.eot?v=4.3.0");
+	src: url("http://maxcdn.bootstrapcdn.com/font-awesome/4.3.0/fonts/fontawesome-webfont.eot?#iefix&v=4.3.0")
+			format("embedded-opentype"),
+		url("http://maxcdn.bootstrapcdn.com/font-awesome/4.3.0/fonts/fontawesome-webfont.woff2?v=4.3.0") format("woff2"),
+		url("http://maxcdn.bootstrapcdn.com/font-awesome/4.3.0/fonts/fontawesome-webfont.woff?v=4.3.0") format("woff"),
+		url("http://maxcdn.bootstrapcdn.com/font-awesome/4.3.0/fonts/fontawesome-webfont.ttf?v=4.3.0")
+			format("truetype"),
+		url("http://maxcdn.bootstrapcdn.com/font-awesome/4.3.0/fonts/fontawesome-webfont.svg?v=4.3.0#fontawesomeregular")
+			format("svg");
+}
+/*----------------------٢-----------------------*/
+/*                  DEFAULTS                    */
+/*
+يجب عليك هنا وضع أي من الأنماط العامة الخاصة بوسوم مثل
+html, body, h1, h2, p 
+وهي الأنماط التي تنطبق على الموقع بشكل عام وكل صفحاته وليس على عنصر معين في صفحة معينة
+*/
+/*----------------------------------------------*/
+* {
+	box-sizing: border-box;
+}
+body {
+	font-family: 'AvenirNext-Regular', sans-serif;
+}
+ul,
+li,
+ol {
+	list-style-type: none;
+	margin: 0;
+	padding: 0;
+}
+a {
+	list-style-type: none;
+	text-decoration: none;
+	color: black;
+}
+.meetYourMatch p {
+	color: #000000;
+	font-family: AvenirNext-Regular;
+	font-size: 14px;
+	line-height: 23px;
+	list-style-type: none;
+	margin-bottom: -10px; /* اقللت المسافه الي بين البرقرافات*/
+}
+h2 {
+	color: #2b292d;
+	font-family: AvenirNext-Medium;
+	font-size: 25px;
+	align-items: center;
+	text-align: center;
+	text-transform: capitalize;
+}
+h5 {
+	font-family: AvenirNext-Bold;
+	font-size: 14px;
+	text-transform: capitalize;
+	color: #000000;
+}
+h4 {
+	color: #000000;
+	font-family: AvenirNext-Medium;
+	font-size: 18px;
+	line-height: 25px;
+	text-transform: capitalize;
+	margin-bottom: -10px; /* عشان نشيل المسافه بين p,h4 في كلاس widget__desc */
+	padding-top: 30px;
+}
+
+
+/*----------------------٣-----------------------*/
+/*               HELPER CLASSES                 */
+/*
+يجب عليك هنا وضع أي من الأنماط الخاصة بال
+classes
+التي ستقوم بإعادة إستخدامها في أكثر من مكان خلال عملك على الموقع 
+على سبيل المثال: النمط الخاص بالزر الأزرق الذي يستعمله المصمم في كل الصفحات تقريباً
+*/
+/*----------------------------------------------*/
+.button {
+	display: inline-block;
+	padding: 20px 65px;
+	font-size: 16px;
+	font-family: AvenirNext-Medium;
+	border-radius: 41px;
+	align-items: center;
+	text-align: center;
+	text-transform: capitalize;
+}
+.button.is-primary {
+	background: #3040c4;
+	color: white;
+}
+.button.is-secondary {
+	background: #ffffff;
+	color: #3040c4;
+}
+.button.is-outline {
+	border: 1px solid #ffffff;
+	color: white;
+}
+/*----------------------٤-----------------------*/
+/*                    LAYOUT                    */
+/*                البناء العام للصفحة           */
+/*----------------------------------------------*/
+.container {
+	padding: 22px 0; /* بادنق يعمل مسافة بين الصفحة عملنا لكل النواحي    */
+	margin: 0 auto; /* عشان يتوسط المحتوى ويكون في مسافة في البداية والنهاية  */
+	max-width: 100%;
+}
+/* a.logo {
+	flex-grow: 1;
+} */
+.hero .container {
+	display: flex; /* عشان ايقونة البرجر والقاىمة الرئيسيه تجي جمب اللوقو  */
+	max-width: 90%;
+}
+.main-nav ul {
+	display: flex;
+}
+/*----------------------٥-----------------------*/
+/*                    HEADER                    */
+/*----------------------------------------------*/
+header .container {
+	/* هذه الخط الى تحت الكونتير في الهيدر عشان كده حطينا heder.container  */
+	display: flex;
+	border-bottom: 1px solid #eef0fc;
+	max-width: 90%; /* القيمة هدة معناها عمره مايتعدى العرض دا بس تخليه لو اصغر من ٩٠٪ عادي  */
+	justify-content: space-between;
+}
+.is-visible-mobile {
+	display: none; /* ايقونة البرجر بس تظهر في الجوال وفي الباقي تكون مخفيه  */
+}
+.burger {
+	/* آخذ الكود من https://css-tricks.com/three-line-menu-navicon/ */
+	/* سواء ضفناها هنا او تحت في الميديا الخاصة بالجوال ماتفرق لانه اصلا احنا في الهيدر عملنها مخفية بس لها ستايل معين عشان تظهر فيه  */
+	position: relative;
+	padding-left: 1.25em; /* حركة في الى سي اس اس انه اخلق عنصر فاضي وهمي عشان كده عمل بادنق وهو اصلا فاضي  */
+}
+.burger:before {
+	/* تعمل عنصر قبل بداية العنصر ونقدر نعمل "افتر" زيادة عنصر بعد العنصر   before */
+	content: ""; /* ميزته بياخذ خاصية اسمها "كونتنت" ينفع نكتب فيها اي كملة  */
+	position: absolute;
+	top: 0.25em;
+	left: 0;
+	width: 1em;
+	height: 0.125em;
+	border-top: 0.375em double #000; /* عمل بوردر سفلي وبوردر علوي ونخلية في النص  */
+	border-bottom: 0.125em solid #000; /* يعني الخط مضروب في ٢ عشان كدا سار خطين من فوق ومن تحت بوردر بوتوم خط  double  */
+}
+/*----------------------٦-----------------------*/
+/*                     HERO                     */
+/*----------------------------------------------*/
+.hero__desc h1 {
+	font-family: AvenirNext-Bold;
+	font-size: 37px;
+	line-height: 45px;
+	align-items: center;
+	text-transform: capitalize;
+}
+.hero__desc p {
+	width: 320px;
+	line-height: 25px;
+}
+.hero__image img {
+	display: block; /* خاصية الامج "ان لاين بلوك" فعملته"بلوك" وخليت الارتفاع حقه تلاقي ع حسب العرض عشان كدة حطيته "اوتو" يزبط المسافات ع حسب الارتفاع"الودث" حقي  */
+	height: auto;
+	width: 100%; /* يسير ياخذ كل الكونتينر "الدف"حقتي والدف الى عملتها دحين ع اساس جوال فاعطيتها فوق ١٠٠بالميه... فسارت الصورة ماخدة كل مساحة الدف  width  */
+	text-align: center; /* عشان تسير الصورة في النص متوسطة  */
+	/* position: absolute;      غلط اني حطيتها لانه هو كان جوه داف فلمن حطيت هذه الخيار هو طلع من الدف فسار فوق ... والدف جواتها سارت فاضية ماعندها لا ارتفاع ولا عرض بمجرد ما اشيلها راح تطلع الصورة  */
+	/*  حيروح يدور ع اقرب relative  لو مالقى ولا في اي كلاس حيروح دايركت ع body لانه هو اساسا ريلتف ويحرك نفسه ع اساس البودي */
+}
+/*----------------------٧-----------------------*/
+/*              MEET YOUR MATCH                 */
+/*----------------------------------------------*/
+.meetYourMatch {
+	background: rgb(250, 250, 250);
+}
+.widget__image {
+	text-align: center;
+}
+input {
+	font-size: 18px;
+	text-transform: capitalize;
+	color: #8b94ce;
+	background: #ffffff;
+	border: 1px solid #3040c4;
+	border-radius: 60px;
+	text-align: center;
+}
+.meetYourMatchــform .button {
+	margin-left: -50px; /* عشان احرك زر البحث داخل زر اللوكيشن  */
+}
+#dog,
+#cat {
+	display: none; /* اخفيت label */
+}
+.switcher {
+	margin: 15px 0 15px; /*  عملت مارجن من فوق ومن تحت بين كلمة meet your match وبين زر البحث عشان تكون صورة البسة والكلب في النص والمسافه بينهم متساويه */
+}
+span {
+	color: #9fa2b8;
+	font-size: 20px;
+	line-height: 60px;
+	text-transform: uppercase;
+	margin: 10px; /* عملت مارجن بين كلمة or وبين الصورتين للبسة والكلب  */
+	vertical-align: top; /*   line height في النص واتحكمت بيها ب  or عشان اوسط كلمة */
+}
+.form-group {
+	margin: 0 auto;
+}
+.form-group::after {
+	font-family: FontAwesome;
+	content: "\f041";
+	color: rgba(48, 64, 196, 0.5);
+	font-size: 30px;
+}
+
+/*----------------------٨-----------------------*/
+/*               HOW IT WORKS                   */
+/*----------------------------------------------*/
+.howItWorks h3 {
+	color: #000000;
+	font-family: AvenirNext-Regular;
+	font-size: 18px;
+	line-height: 25px;
+	text-transform: capitalize;
+	text-align: center;
+	margin-top: 30px;
+}
+.howItWorks p {
+	color: #6a6c79;
+	font-family: AvenirNext-Regular;
+	font-size: 14px;
+	line-height: 23px;
+	text-align: center;
+}
+/*----------------------٩-----------------------*/
+/*                 STORIES                      */
+/*----------------------------------------------*/
+.link {
+	color: #2329db;
+	font-family: AvenirNext-Medium;
+}
+.stories {
+	/*  عملت مسافة من فوق للخلفية الرمادي  */
+	background: #f6f6f9;
+	margin-top: 35px;
+}
+.stories h3 {
+	color: #000000;
+	font-family: AvenirNext-Regular;
+	font-size: 18px;
+	line-height: 25px;
+}
+.heading-paragraph {
+	color: #5f5f80;
+	font-family: AvenirNext-Regular;
+	font-size: 14px;
+	line-height: 19px;
+	text-align: center;
+	margin: 0 auto;
+	margin-bottom: 30px;
+}
+/*----------------------١٠----------------------*/
+/*       Actions: Change A Life, Adopt A Pet    */
+/*----------------------------------------------*/
+.actions {
+	/* خلفيه زرقاء لل action */
+	background: #3040c4;
+	padding: 16px;
+}
+.actions h2 {
+	color: white;
+	margin-bottom: 45px; /* مسافة بين الزرين والنص  */
+	/* white-space: nowrap; */
+}
+.actions .container {
+	text-align: center;
+}
+/*---------------------١١-----------------------*/
+/*                    FOOTER                    */
+/*----------------------------------------------*/
+footer ul li {
+	padding: 10px 0;
+}
+.copyrights a {
+	color: black;
+}
+.footer-nav {
+	font-size: 14px;
+	text-transform: capitalize;
+	display: flex;
+	flex-flow: wrap;
+	justify-content: space-between;
+	flex-grow: 2;
+}
+footer .item a {
+	color: black;
+	font-size: 14px;
+	text-transform: capitalize;
+}
+
+/*----------------------١٢----------------------*/
+/*                    Responsive                */
+/*       كل ما هو متعلق بالهواتف والتابلت       */
+/*----------------------------------------------*/
+/* المشتركة بين التابلت والجهاز */
+@media (min-width: 481px) {
+	.main-nav li a {
+		/* القائمة الرئيسية اعطيتها مارجن عشان تكون في مسافة بين العناصر وتكون في المنتصف */
+		margin: 0 16px;
+		align-items: center;
+	}
+	.meetYourMatchــcontent {
+		margin: 0 auto 20px;
+		text-align: center;
+		position: relative;
+		z-index: 0; /* المحتوى يجي كله فوق الخلفية */
+		margin-top: -340px;
+	}
+	.meetYourMatch__background {
+		margin: 0 auto;
+		height: 370px;
+		width: 90%;
+		background-color: rgb(228, 228, 247);
+		border-radius: 5%;
+		position: relative;
+		z-index: 0;
+		margin-top: 50px;
+	}
+	.widget__image {
+		margin: 0 30px; /* نوسط الصور في النص وتكون في مسافة بين الصور  */
+	}
+	.is-searchResults {
+		position: relative;
+		z-index: 0;
+		margin-top: 40px;
+		display: flex; /* عملت فلكس عشان تجي الصور جمب بعض ع شكل صف وتكون في النص  */
+		flex-flow: row wrap;
+		justify-content: center;
+	}
+	.meetYourMatch .widget__desc {
+		margin: 0 auto 20px;
+		text-align: justify;
+		margin-top: -50px;
+		margin-bottom: 35px;
+		background: white;
+		width: 80%;
+	}
+	.howItWorks .widget__desc {
+		display: flex; /* عملتها فلكس عشان تجي جمب بعض وعامود تجي تحت بعض في التابلت وفي الجهاز تجي جمب بعض  */
+		flex-direction: column;
+		justify-content: center;
+		align-items: center;
+	}
+	.stories .widget__desc {
+		margin-left: 30px; /* مسافة للنص والرابط عشان يجي تحت الصورة بالزبط */
+	}
+	.button.is-secondary {
+		margin-right: 20px; /* مسافة بين الزرين في كلاس action */
+	}
+	footer .container {
+		display: flex;
+		width: 90%;
+	}
+	footer .copyrights {
+		padding: 30px 0 30px 0; /* مسافه من فوق وتحت اللوقو  */
+		flex-grow: 1;
+	}
+}
+
+/*----------------------------------------------*/
+/* ابعاد الجهاز  */
+@media (min-width: 1025px) {
+	.hero__desc h1 {
+		width: 60%;
+	}
+	.hero__image img {
+		width: 90%;
+	}
+	input {
+		width: 30%;
+		height: 58px;
+		padding-right: 100px;
+	}
+	.is-howItWorks {
+		display: flex;
+	}
+	.is-howItWorks .widget__desc p {
+		width: 47%;
+		margin: 0 auto;
+	}
+	.stories .widgets {
+		display: flex;
+		justify-content: space-around;
+	}
+	.heading-paragraph {
+		width: 35%;
+	}
+	.form-group::after { 	/* ايقونه اللوكيشن */
+		position: absolute;
+		right: 66%;
+		top: 25%;
+	}
+}
+
+/*----------------------------------------------*/
+/* ابعاد التابلت */
+@media (min-width: 768px) and (max-width: 1024px) {
+	.hero__desc h1 {
+		width: 90%;
+	}
+	.hero__image {
+		/* border: 1px solid red;  حطينها بس عشان اشوف شكل الصوره وهو بيتحرك داخل الصندوق  */
+		position: relative; /* يعني احتاج اعطية width - hight */
+		width: 90%;
+		padding-top: 50px; /* نزلت الصوره الى في الهيرو ع اسفل شوية  */
+	}
+	input {
+		width: 45%; /* خانه اللوكيشن  */
+		height: 58px;
+		padding-right: 60px;
+	}
+	.is-howItWorks .widget__desc p {
+		width: 34%;
+		margin: 0 auto;
+	}
+	.howItWorks .widget__image {
+		margin-top: 40px; /* مسافة بين الصور  */
+	}
+	.heading-paragraph {
+		width: 65%;
+	}
+	.stories .widget__image {
+		display: flex;
+		margin-top: 15px;
+	}
+	.form-group::after {
+		position: absolute;
+		left: 25%;
+		top: 16%;
+	}
+}
+
+/*----------------------------------------------*/
+/* ابعاد الجوال */
+@media (max-width: 480px) {
+	.main-nav {
+		display: none; /* هذه خاصه بالقائمة الرئيسية الي في الهيدر بحيث انه في الجوال ماتظهر  */
+	}
+	.hero .container {
+		display: block;
+		max-width: 90%; /* عشان الصورة الى في كلاس الهيرو تاخذ مساحة شاشه الجوال كاملة  */
+	}
+	.hero__desc {
+		margin: 0 auto;
+	}
+	.widget img {
+		width: 90%;
+	}
+	.widget__image {
+		width: 100%; /* اعطيك الصور كلها حجم واحد  */
+		margin: 0 auto 35px;
+		padding-top: 15px;
+	}
+	.is-visible-mobile {
+		display: inline-block; /* ظهور ايقونه البرجر */
+	}
+	input {
+		width: 70%;
+		height: 58px;
+		padding-right: 40px;
+	}
+	.form-group::after {
+		position: absolute;
+		left: 10%;
+		top: 7%;
+	}
+	.meetYourMatch__background {
+		height: 490px;
+		width: 100%;
+		background-color: rgb(228, 228, 247);
+		border-bottom-left-radius: 9%; /* في تطبيق الجوال الانحناء بس اسفل المربع فاحددت عشان بس يسير الانحناء من تحت  */
+		border-bottom-right-radius: 9%;
+		position: relative; /* عشان تقعد بنفس النطاق حقها relative ... ما احط ابسلوت الا لو بحركها جوة ريلتف  */
+		bottom: 44px; /* عشان اطلعها لفوق وتسير تحت صورة الهيرو بالزبط */
+		z-index: 0; /* اعطيناها -١ عشان تكون الخلفية تحت والكلام من فوق z-index.. صفر هيا الاساس ، ١ فوق ، -١ تحت  */
+	}
+	.meetYourMatchــcontent {
+		margin: 0 auto;
+		margin-top: -132%; /* كل المحتوى يطلع فوق الخلفية الموف */
+		text-align: center;
+		position: relative;
+		z-index: 0;
+	}
+	.meetYourMatchــform .button {
+		width: 10%; /* صغرت حجم زر البحث  */
+	}
+	.widget__desc {
+		margin: 0 auto;
+		text-align: justify;
+		width: 90%;
+		margin-top: -40px;
+	}
+	.meetYourMatch .widget__desc {
+		background: white;
+		padding-left: 20px; /* اعطيت مسافه من اليسار ومن تحت  */
+		padding-bottom: 20px;
+	}
+	.is-howItWorks {
+		width: 70%;
+		text-align: center;
+		margin: 0 auto;
+	}
+	.howItWorks p {
+		width: 100%;
+		margin: 0 auto;
+	}
+	.is-outline {
+		width: 44%;
+		padding: 18px;
+	}
+	.is-secondary {
+		width: 50%;
+		padding: 18px;
+	}
+	footer .copyrights {
+		width: 90%;
+		margin: 0 auto;
+	}
+	footer .container {
+		width: 90%;
+	}
+	.footer-nav .item {
+		width: 50%;
+	}
+}
